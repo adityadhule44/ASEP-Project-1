@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <style>
+        /* Inline CSS for error styling */
+        .error-message {
+            color: #ff4d4d;
+            font-size: 1rem;
+            margin-top: 10px;
+            opacity: 0;
+            transform: translateY(-10px);
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+        .error-message.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        form {
+            position: relative;
+            max-width: 300px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            background-color: #f9f9f9;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Login</h1>
+    </header>
+    <main>
+        <form id="loginForm" method="POST" action="/login">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required>
+            <br>
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+            <br>
+            <div id="errorContainer" class="error-message"></div>
+            <button type="submit">Submit</button>
+        </form>
+        <p>Don't have an account? <a href="/signup">Sign Up</a></p>
+    </main>
+    <script>
+        const loginForm = document.getElementById('loginForm');
+        const errorContainer = document.getElementById('errorContainer');
+
+        loginForm.addEventListener('submit', async (event) => {
+            event.preventDefault(); // Prevent the default form submission
+
+            const formData = new FormData(loginForm);
+            const username = formData.get('username');
+            const password = formData.get('password');
+
+            try {
+                const response = await fetch('/login', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ username, password }),
+                });
+
+                if (!response.ok) {
+                    const errorData = await response.json();
+                    errorContainer.textContent = errorData.error || 'An error occurred.';
+                    errorContainer.classList.add('visible');
+                } else {
+                    window.location.href = 'http://127.0.0.1:5000/';
+                }
+            } catch (error) {
+                errorContainer.textContent = 'Network error. Please try again.';
+                errorContainer.classList.add('visible');
+            }
+        });
+    </script>
+</body>
+</html>

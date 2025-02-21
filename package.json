@@ -1,0 +1,34 @@
+{
+  "name": "pdf-to-audio",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "concurrently \"npm run server:express\" \"npm run server:flask\"",
+    "server:express": "node server.js",
+    "server:flask": "python app.py"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "bcrypt": "^5.1.1",
+    "body-parser": "^1.20.3",
+    "cors": "^2.8.5",
+    "ejs": "^3.1.10",
+    "express": "^4.21.2",
+    "fs": "^0.0.1-security",
+    "google-translate-api": "^2.3.0",
+    "gtts": "^0.2.1",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.9.5",
+    "multer": "^1.4.5-lts.1",
+    "openai": "^4.78.1",
+    "pdf-parse": "^1.1.1",
+    "pg": "^8.13.1",
+    "react-scripts": "^5.0.1"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2"
+  }
+}
