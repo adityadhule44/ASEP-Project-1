@@ -1,0 +1,102 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #a4a4a4;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background: linear-gradient(to right, #7fea1b, #c77a3f);
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    font-size: 40px;
+    height: auto;
+}
+
+/* Container for the form */
+.container {
+    max-width: 800px;
+    margin: 50px auto;
+    background-color: white;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+.adj{
+    margin-left: 10px;
+    display: flex;
+}
+
+h2 {
+    text-align: center;
+    color: #333;
+    /* margin-bottom: 30px; */
+    font-size: 32px;
+    margin-top: 20px;
+}
+.container h2{
+    margin-top: 20px;
+}
+
+label {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+    display: block;
+    color: #555;
+}
+
+input[type="file"],
+select {
+    width: 420px;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #666565;
+    border-radius: 5px;
+    font-size: 1em;
+}
+select:hover{
+    border: 2px solid #0f0000;
+}
+
+button {
+    width: 300px;
+    padding: 12px;
+    background-color: #035137;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.2em;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-left: 250px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+button:hover {
+    background-color: #0c684a;
+}
+
+.footer {
+    text-align: center;
+    margin-top: 50px;
+    font-size: 0.9em;
+    color: #090909;
+}
+
+/* For mobile devices */
+@media (max-width: 600px) {
+    .container {
+        margin: 20px;
+        padding: 15px;
+    }
+
+    button {
+        font-size: 1em;
+    }
+}
+.conversion{
+    height: 300px;
+    width: 300px;
+    margin-left: 20px;
+}

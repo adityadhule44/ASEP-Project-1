@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversion Result</title>
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 0;
+            height: 100vh;
+            font-family: 'Arial', sans-serif;
+            color: #333;
+            background: linear-gradient(to right, #f8f9fa, #e9ecef);
+            background: url('pdftoaudio.webp') no-repeat center center/cover;
+            transition: background-color 0.3s ease;
+        }
+
+        h2 {
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            color: #007bff;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* Left Section: Audio File and History */
+        .audio-section {
+            width: 35%;
+            padding: 20px;
+            background-color: #ffffff;
+            box-shadow: 2px 0px 10px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            margin: 30px;
+            border-radius: 15px;
+        }
+
+        .history-section {
+            width: 100%;
+            max-height: 300px;
+            overflow-y: auto;
+            margin-bottom: 50px;
+            background-color: #ffffff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .history-section:hover {
+            box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.2);
+            background-color: #f8f9fa;
+        }
+
+        .history-section h3 {
+            font-size: 1.4em;
+            color: #007bff;
+            margin-bottom: 5px;
+        }
+
+        .history-button {
+            display: inline-block;
+            padding: 15px 25px;
+            background-color: #007bff;
+            color: white;
+            border-radius: 30px;
+            font-size: 1.2em;
+            margin-top: 30px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: center;
+            text-decoration: none;
+        }
+
+        .history-button:hover {
+            background-color: #0056b3;
+            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .audio-section audio {
+            margin-top: 20px;
+            width: 100%;
+            max-width: 600px;
+            border: 1px solid #007bff;
+            border-radius: 5px;
+        }
+
+        /* Right Section: AI Chatbot */
+        .chat-section {
+            width: 35%;
+            padding: 20px;
+            background-color: #ffffff;
+            box-shadow: -2px 0px 10px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            margin: 50px;
+            border-radius: 15px;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .chat-section h2 {
+            font-size: 1.8em;
+            color: #007bff;
+            margin-bottom: 20px;
+        }
+
+        .chat-section p {
+            font-size: 1.2em;
+            color: #555;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        /* Arrow Animation */
+        .arrow {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 20px;
+            animation: bounce 1.5s infinite;
+        }
+
+        .arrow img {
+            width: 50px;
+            height: 50px;
+        }
+
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <!-- Left Section: Audio and History -->
+    <div class="audio-section">
+        <div class="history-section">
+            <h3>Access Your Uploaded Files and Generated Audio</h3>
+            <a href="/history" class="history-button">
+                <button>View History</button>
+            </a>
+        </div>
+        <h2>Converted Audio</h2>
+        <audio controls>
+            <source src="{{ audio_url }}" type="audio/mp3">
+            Your browser does not support the audio element.
+        </audio>
+    </div>
+
+    <!-- Right Section: AI Chatbot -->
+    <div class="chat-section">
+        <h2>Need Help?</h2>
+        <p>Click the AI Button icon below for assistance.</p>
+        <div class="arrow">
+            <img src="down-arrow.png" alt="Down Arrow">
+        </div>
+    </div>
+
+    <script src="https://cdn.botpress.cloud/webchat/v2.2/inject.js"></script>
+    <script src="https://files.bpcontent.cloud/2025/01/25/10/20250125104157-7YNXB3UO.js"></script>
+</body>
+</html>
